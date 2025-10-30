@@ -38,7 +38,21 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
+<distributionManagement>
+	
+	    <repository>
+	      <id>nexus</id>
+	      <name>Nexus Repository</name>
+	      <url>http://3.210.199.105:8081/repository/Springboot-release/</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Snapshot Nexus Repository</name>
+	      <url>http://3.210.199.105:8081/repository/Springboot-snapshot/</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
