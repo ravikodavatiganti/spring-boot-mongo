@@ -30,7 +30,6 @@ pipeline {
                 }
             }
         }
-   
 
         stage('Build & Tag Docker Image') {
             steps {
@@ -41,13 +40,21 @@ pipeline {
                 }
             }
         }
-      
 
         stage('Push Docker Image') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'Docker') {
                         sh 'docker push ravikodavatiganti/mongospring:latest'
+                    }
+                }
+            }
+        }
+		stage('create container') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'Docker') {
+                        sh 'docker run -d -p 8083:8080 --name webapp ravikodavatiganti/mongospring:latest'
                     }
                 }
             }
